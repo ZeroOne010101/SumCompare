@@ -57,7 +57,7 @@
 		<!--Top Banner-->
 		<Panel DockPanel.Dock="Top">
 			<Menu DockPanel.Dock="Top">
-				<MenuItem Header="{x:Static i18n:Resources.GreetingText}">
+				<MenuItem Header="x">
 					<MenuItem Header="Compare Files"/>
 					<MenuItem Header="Settings" Command="{Binding OpenSettings}"/>
 				</MenuItem>
