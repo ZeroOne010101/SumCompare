@@ -1,0 +1,55 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:SumCompare.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="260" d:DesignHeight="280"
+             x:Class="SumCompare.Views.AboutView"
+			 x:DataType="vm:AboutViewModel">
+	
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+		     to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:AboutViewModel />
+	</Design.DataContext>
+			 
+			 
+	<!--Styles-->
+	<!--Button-->
+	<UserControl.Styles>
+		<Style Selector="Button">
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="CornerRadius" Value="0"/>
+		</Style>
+	</UserControl.Styles>
+	
+	<!--Content-->
+	<DockPanel>
+		<TextBlock DockPanel.Dock="Top"
+				   HorizontalAlignment="Center"
+				   FontSize="18"
+				   FontWeight="Medium"
+				   Margin="0 3">
+			About
+		</TextBlock>
+		<TextBlock DockPanel.Dock="Top"
+				   HorizontalAlignment="Center"
+				   TextAlignment="Center">
+			About SumCompare<LineBreak/>
+			Lorem Ipsum<LineBreak/>
+			Dolores illeat<LineBreak/>
+			securem asperagum sum<LineBreak/>
+			ser ees alat erebus
+		</TextBlock>
+		<DockPanel DockPanel.Dock="Top"/>
+		<Button
+			DockPanel.Dock="Bottom"
+			Margin="5">
+			Ok
+		</Button>
+		<DockPanel DockPanel.Dock="Bottom"/>
+	</DockPanel>
+</UserControl>
