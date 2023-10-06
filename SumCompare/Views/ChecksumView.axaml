@@ -6,37 +6,19 @@
              x:Class="SumCompare.Views.ChecksumView">
 	<!--Styles-->
 	<UserControl.Styles>
-		<!--TextBox-->
-		<Style Selector="TextBox">
-			<Setter Property="VerticalAlignment" Value="Stretch"/>
-			<Setter Property="HorizontalAlignment" Value="Stretch"/>
-			<Setter Property="CornerRadius" Value="0"/>
-			<Setter Property="BorderBrush" Value="Silver"/>
-		</Style>
-
-		<!--Button-->
-		<Style Selector="Button">
-			<Setter Property="VerticalAlignment" Value="Stretch"/>
-			<Setter Property="HorizontalAlignment" Value="Stretch"/>
-			<Setter Property="VerticalContentAlignment" Value="Center"/>
-			<Setter Property="HorizontalContentAlignment" Value="Center"/>
-			<Setter Property="CornerRadius" Value="0"/>
-		</Style>
-
-		<Style Selector="Button:pointerover">
-			<Setter Property="BorderBrush" Value="Red"/>
-		</Style>
+		<!--Global Styles-->
+		<StyleInclude Source="/Styles/Styles.axaml"/>
 	</UserControl.Styles>
 	
 	<!--Content-->
 	<DockPanel>
 		<TextBlock DockPanel.Dock="Top"
-			   FontSize="13"
 			   FontWeight="Medium"
 			   Text="Checksum"/>
 		<Grid DockPanel.Dock="Top"
 			  ColumnDefinitions="*,38,38"
 			  RowDefinitions="38">
+			
 			<TextBox Grid.Column="0" Grid.Row="0"/>
 			<Button Grid.Column="1" Grid.Row="0"
 					BorderThickness="0"
@@ -46,10 +28,8 @@
 					Content="B"/>
 		</Grid>
 		<TextBlock DockPanel.Dock="Top"
-					   TextWrapping="Wrap"
-					   FontStyle="Italic"
-					   FontSize="13"
-					   FontFamily="Font"
-					   Text="InformationText"/>
+				   TextWrapping="Wrap"
+				   FontStyle="Italic"
+				   Text="InformationText"/>
 	</DockPanel>
 </UserControl>

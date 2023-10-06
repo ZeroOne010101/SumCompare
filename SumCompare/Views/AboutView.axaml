@@ -17,13 +17,8 @@
 	<!--Styles-->
 	<!--Button-->
 	<UserControl.Styles>
-		<Style Selector="Button">
-			<Setter Property="VerticalAlignment" Value="Stretch"/>
-			<Setter Property="HorizontalAlignment" Value="Stretch"/>
-			<Setter Property="VerticalContentAlignment" Value="Center"/>
-			<Setter Property="HorizontalContentAlignment" Value="Center"/>
-			<Setter Property="CornerRadius" Value="0"/>
-		</Style>
+		<!--Global Styles-->
+		<StyleInclude Source="/Styles/Styles.axaml"/>
 	</UserControl.Styles>
 	
 	<!--Content-->
@@ -32,11 +27,9 @@
 				   HorizontalAlignment="Center"
 				   FontSize="18"
 				   FontWeight="Medium"
-				   Margin="0 3">
-			About
-		</TextBlock>
+				   Margin="0 3"
+				   Text="About"/>
 		<TextBlock DockPanel.Dock="Top"
-				   HorizontalAlignment="Center"
 				   TextAlignment="Center">
 			About SumCompare<LineBreak/>
 			Lorem Ipsum<LineBreak/>
@@ -45,11 +38,9 @@
 			ser ees alat erebus
 		</TextBlock>
 		<DockPanel DockPanel.Dock="Top"/>
-		<Button
-			DockPanel.Dock="Bottom"
-			Margin="5">
-			Ok
-		</Button>
+		<Button DockPanel.Dock="Bottom"
+				Margin="5"
+				Content="OK"/>
 		<DockPanel DockPanel.Dock="Bottom"/>
 	</DockPanel>
 </UserControl>

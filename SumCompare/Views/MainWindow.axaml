@@ -10,5 +10,5 @@
 		CanResize="False"
 		Width="260"
 		Height="280">
-        <views:MainView />
+    <views:MainView />
 </Window>

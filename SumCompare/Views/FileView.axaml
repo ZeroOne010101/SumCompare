@@ -6,28 +6,13 @@
              x:Class="SumCompare.Views.FileView">
 	<!--Styles-->
 	<UserControl.Styles>
-		<!--TextBox-->
-		<Style Selector="TextBox">
-			<Setter Property="VerticalAlignment" Value="Stretch"/>
-			<Setter Property="HorizontalAlignment" Value="Stretch"/>
-			<Setter Property="CornerRadius" Value="0"/>
-			<Setter Property="BorderBrush" Value="Silver"/>
-		</Style>
-
-		<!--Button-->
-		<Style Selector="Button">
-			<Setter Property="VerticalAlignment" Value="Stretch"/>
-			<Setter Property="HorizontalAlignment" Value="Stretch"/>
-			<Setter Property="VerticalContentAlignment" Value="Center"/>
-			<Setter Property="HorizontalContentAlignment" Value="Center"/>
-			<Setter Property="CornerRadius" Value="0"/>
-		</Style>
+		<!--Global Styles-->
+		<StyleInclude Source="/Styles/Styles.axaml"/>
 	</UserControl.Styles>
 	
 	<!--Content-->
 	<DockPanel>
 		<TextBlock DockPanel.Dock="Top"
-			   FontSize="13"
 			   FontWeight="Medium"
 			   Text="Dateipfad"/>
 		<Grid DockPanel.Dock="Top"

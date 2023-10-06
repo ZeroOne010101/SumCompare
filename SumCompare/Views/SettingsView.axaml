@@ -9,26 +9,18 @@
 
 	<!--Style-->
 	<UserControl.Styles>
+		<!--Global Styles-->
+		<StyleInclude Source="/Styles/Styles.axaml"/>
+		
+		<!--Local Styles-->
 		<!--ComboBox-->
 		<Style Selector="ComboBox">
-			<Setter Property="MaxDropDownHeight" Value="130"/>
-			<Setter Property="CornerRadius" Value="3"/>
 			<Setter Property="Margin" Value="0 0 10 0"/>
-			<Setter Property="HorizontalAlignment" Value="Right"/>
 		</Style>
-
+		
 		<!--TextBlock-->
 		<Style Selector="TextBlock">
 			<Setter Property="Margin" Value="10 0 0 0"/>
-		</Style>
-
-		<!--Button-->
-		<Style Selector="Button">
-			<Setter Property="VerticalAlignment" Value="Stretch"/>
-			<Setter Property="HorizontalAlignment" Value="Stretch"/>
-			<Setter Property="VerticalContentAlignment" Value="Center"/>
-			<Setter Property="HorizontalContentAlignment" Value="Center"/>
-			<Setter Property="CornerRadius" Value="0"/>
 		</Style>
 	</UserControl.Styles>
 
@@ -40,39 +32,38 @@
 			FontSize="16"
 			FontWeight="DemiBold"
 			Text="Settings"/>
-		<DockPanel DockPanel.Dock="Top" Margin="0 5">
-			<TextBlock
-				DockPanel.Dock="Left"
-				FontSize="13"
-				FontWeight="Medium"
-				HorizontalAlignment="Center"
-				VerticalAlignment="Center"
-				Text="Default Algorithm"/>
-			<ComboBox DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+		<DockPanel DockPanel.Dock="Top"
+				   Margin="0 5">
+			<TextBlock DockPanel.Dock="Left"
+					   FontWeight="Medium"
+					   HorizontalAlignment="Center"
+					   VerticalAlignment="Center"
+					   Text="Default Algorithm"/>
+			<ComboBox DockPanel.Dock="Right"
+					  HorizontalAlignment="Right"/>
 		</DockPanel>
-		<DockPanel DockPanel.Dock="Top" Margin="0 5">
-			<TextBlock
-				DockPanel.Dock="Left"
-				FontSize="13"
-				FontWeight="Medium"
-				HorizontalAlignment="Center"
-				VerticalAlignment="Center"
-				Text="Language"/>
-			<ComboBox DockPanel.Dock="Right" HorizontalAlignment="Right"/>
+		<DockPanel DockPanel.Dock="Top"
+				   Margin="0 5">
+			<TextBlock DockPanel.Dock="Left"
+					   FontWeight="Medium"
+					   HorizontalAlignment="Center"
+					   VerticalAlignment="Center"
+					   Text="Language"/>
+			<ComboBox DockPanel.Dock="Right"
+					  Margin="0 0 10 0"
+					  HorizontalAlignment="Right"/>
 		</DockPanel>
-		<Button
-			DockPanel.Dock="Bottom"
-			MaxHeight="35"
-			VerticalAlignment="Top"
-			Margin="5 3 5 5"
-			Command="{Binding CancelSettingsWindow}"
-			Content="Cancel"/>
-		<Button
-			DockPanel.Dock="Bottom"
-			MaxHeight="35"
-			VerticalAlignment="Top"
-			Margin="5 5 5 2"
-			Content="Save"/>
+		<Button DockPanel.Dock="Bottom"
+				Height="38"
+				VerticalAlignment="Top"
+				Margin="5 3 5 5"
+				Command="{Binding CancelSettingsWindow}"
+				Content="Cancel"/>
+		<Button DockPanel.Dock="Bottom"
+				Height="38"
+				VerticalAlignment="Top"
+				Margin="5 5 5 2"
+				Content="Save"/>
 		<DockPanel DockPanel.Dock="Bottom"/>
 	</DockPanel>
 </UserControl>
