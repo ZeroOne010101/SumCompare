@@ -27,11 +27,10 @@
 		<Panel Grid.Row="0">
 			<Menu DockPanel.Dock="Top">
 				<MenuItem Header="Datei">
-					<MenuItem Header="Compare Files">
-						<!--Makes Item Checkable-->
-						<MenuItem.Icon>
-							<CheckBox/>
-						</MenuItem.Icon>
+					<MenuItem Header="Mode">
+						<MenuItem Header="Hash File"/>
+						<MenuItem Header="Hash Text"/>
+						<MenuItem Header="Compare Files"/>
 					</MenuItem>
 					<MenuItem Header="Settings"
 							  Command="{Binding OpenSettings}"/>

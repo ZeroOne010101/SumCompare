@@ -18,7 +18,9 @@
 		<Grid DockPanel.Dock="Top"
 			  ColumnDefinitions="*,38"
 			  RowDefinitions="38">
-			<TextBox Grid.Column="0"/>
+			<!--TextBox apparently does not respect Grid Row Height, thus manual assignment-->
+			<TextBox Grid.Column="0"
+					 Height="38"/>
 			<Button Grid.Column="1" Grid.Row="0"
 					BorderThickness="0"
 					Content="A"/>
