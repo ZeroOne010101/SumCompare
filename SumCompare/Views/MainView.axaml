@@ -3,10 +3,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:SumCompare.ViewModels"
+			 xmlns:views="clr-namespace:SumCompare.Views"
 			 xmlns:i18n="clr-namespace:SumCompare.Assets.i18n"
              mc:Ignorable="d" d:DesignWidth="260" d:DesignHeight="280"
              x:Class="SumCompare.Views.MainView"
              x:DataType="vm:MainViewModel">
+	
 	<Design.DataContext>
 		<!-- This only sets the DataContext for the previewer in an IDE,
 		     to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
@@ -33,21 +35,10 @@
 			<Setter Property="Margin" Value="0 0 5 0"/>
 			<Setter Property="HorizontalAlignment" Value="Right"/>
 		</Style>
-
-		<!--TextBox-->
-		<Style Selector="TextBox">
-			<Setter Property="VerticalAlignment" Value="Stretch"/>
-			<Setter Property="HorizontalAlignment" Value="Stretch"/>
-			<Setter Property="Margin" Value="0 2"/>
-			<Setter Property="CornerRadius" Value="0"/>
-		</Style>
-
+		
 		<!--Button-->
 		<Style Selector="Button">
-			<Setter Property="VerticalAlignment" Value="Stretch"/>
-			<Setter Property="HorizontalAlignment" Value="Stretch"/>
-			<Setter Property="VerticalContentAlignment" Value="Center"/>
-			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="Height" Value="38"/>
 			<Setter Property="CornerRadius" Value="0"/>
 		</Style>
 	</UserControl.Styles>
@@ -55,10 +46,14 @@
 	<!--Content-->
 	<DockPanel>
 		<!--Top Banner-->
-		<Panel DockPanel.Dock="Top">
+		<Panel DockPanel.Dock="Top" Height="32">
 			<Menu DockPanel.Dock="Top">
-				<MenuItem Header="x">
-					<MenuItem Header="Compare Files"/>
+				<MenuItem Header="Datei">
+					<MenuItem Header="Compare Files">
+						<MenuItem.Icon>
+							<CheckBox/>
+						</MenuItem.Icon>
+					</MenuItem>
 					<MenuItem Header="Settings" Command="{Binding OpenSettings}"/>
 				</MenuItem>
 				<MenuItem Header="About" Command="{Binding OpenAboutWindow}"/>
@@ -66,46 +61,22 @@
 			<ComboBox Name="Algorithms" ItemsSource="{Binding AlgorithmItems}" SelectedItem="{Binding SelectedAlgorithm}"/>
 		</Panel>
 
-		<!--Middle Portion-->
-		<DockPanel Margin="5 10 5 5">
-			<!--File Selector-->
-			<DockPanel DockPanel.Dock="Top">
-				<TextBlock DockPanel.Dock="Top"
-					   FontSize="13"
-					   FontWeight="Medium"
-					   Text="Datei"/>
-				<TextBox DockPanel.Dock="Top"/>
-				<Button Name="SelectFileBtn" DockPanel.Dock="Top" MaxHeight="35" Content="A"/>
-			</DockPanel>
+		<!--Middle Content-->
+		<DockPanel DockPanel.Dock="Top"
+				   Margin="5 10 5 5">
+			<!--1st View-->
+			<views:FileView DockPanel.Dock="Top"/>
 
-			<!--Checksum Field-->
-			<DockPanel DockPanel.Dock="Top"  Margin="0 10 0 0">
-				<TextBlock DockPanel.Dock="Top"
-					   FontSize="13"
-					   FontWeight="Medium"
-					   Text="Checksum"/>
-				<TextBox DockPanel.Dock="Top"/>
-				<DockPanel DockPanel.Dock="Top">
-					<!--FontFamily="Font" is needed for Italics for some reason-->
-					<TextBlock DockPanel.Dock="Left"
-							   TextWrapping="Wrap"
-							   MaxWidth="150"
-							   FontStyle="Italic"
-							   FontSize="13"
-							   FontFamily="Font"
-							   Margin="0 0 6 0"
-							   Text="{Binding InformationText}"/>
-					<Button HorizontalContentAlignment="Center" Content="Delete"/>
-				</DockPanel>
-				<Button Name="GenHashBtn"
-						DockPanel.Dock="Bottom"
-						MaxHeight="35"
-						VerticalAlignment="Center"
-						Margin="0 0 0 0"
-						Content="Generate"
-						Command="{Binding GenerateButton}"/>
-				<DockPanel DockPanel.Dock="Bottom"/>
-			</DockPanel>
+			<!--2nd View-->
+			<views:ChecksumView DockPanel.Dock="Top"
+								Margin="0 10 0 0"/>
+			<!--Button-->
+			<Button DockPanel.Dock="Bottom"
+					VerticalAlignment="Bottom"
+					VerticalContentAlignment="Center"
+					HorizontalAlignment="Stretch"
+					HorizontalContentAlignment="Center"
+					Content="GenerateButton"/>
 		</DockPanel>
 	</DockPanel>
 </UserControl>
