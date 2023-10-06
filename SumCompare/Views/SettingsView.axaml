@@ -48,6 +48,17 @@
 					   FontWeight="Medium"
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
+					   Text="Default Mode"/>
+			<ComboBox DockPanel.Dock="Right"
+					  Margin="0 0 10 0"
+					  HorizontalAlignment="Right"/>
+		</DockPanel>
+		<DockPanel DockPanel.Dock="Top"
+				   Margin="0 5">
+			<TextBlock DockPanel.Dock="Left"
+					   FontWeight="Medium"
+					   HorizontalAlignment="Center"
+					   VerticalAlignment="Center"
 					   Text="Language"/>
 			<ComboBox DockPanel.Dock="Right"
 					  Margin="0 0 10 0"
