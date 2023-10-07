@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿using Avalonia.Controls;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using ReactiveUI;
 using SumCompare.Utilities;
 using SumCompare.Views;
@@ -13,11 +14,35 @@ namespace SumCompare.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
+    // Fields
+    public Dictionary<string, MainControls> appModes = new()
+    {
+        {"hash_file",       new MainControls(new FileView(), new ChecksumView())},
+        //{"hash_text",       new AppMode("hash_file", new TextView(), new ChecksumView())},
+        {"compare_files",   new MainControls(new FileView(), new FileView())}
+    };
+
+    // Primitives
+    public struct MainControls
+    {
+        public MainControls(UserControl topControl, UserControl bottomControl)
+        {
+            TopControl = topControl;
+            BottomControl = bottomControl;
+        }
+        public UserControl TopControl { get; set; }
+        public UserControl BottomControl { get; set; }
+    }
+
+    // Properties
     public List<string> AlgorithmItems { get; set; }
     public string SelectedAlgorithm { get; set; }
+    public MainControls _mode { get; set; }
+    public ReactiveCommand<Unit, Unit> OpenAboutWindow { get; }
+    public ReactiveCommand<Unit, Unit> OpenSettings { get; }
+    public ReactiveCommand<Unit, Unit> GenerateButton { get; }
 
-    public string InformationText => "Leer lassen um eine Checksum zu generieren.";
-
+    // Functions
     public MainViewModel()
     {
         OpenAboutWindow = ReactiveCommand.Create(_OpenAboutWindow);
@@ -25,11 +50,8 @@ public class MainViewModel : ViewModelBase
         AlgorithmItems = HashGenerator.HashDict.Keys.ToList();
         SelectedAlgorithm = AlgorithmItems[0]; //TODO Set to Default Algorithm
         GenerateButton = ReactiveCommand.Create(_GenerateButton);
+        _mode = appModes["hash_file"];
     }
-
-    public ReactiveCommand<Unit, Unit> OpenAboutWindow { get; }
-    public ReactiveCommand<Unit, Unit> OpenSettings { get; }
-    public ReactiveCommand<Unit, Unit> GenerateButton {  get; }
 
     void _OpenAboutWindow()
     {
