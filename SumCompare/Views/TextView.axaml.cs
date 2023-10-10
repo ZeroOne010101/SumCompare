@@ -3,12 +3,12 @@ using SumCompare.ViewModels;
 
 namespace SumCompare.Views
 {
-    public partial class AboutView : UserControl
+    public partial class TextView : UserControl
     {
-        public AboutView()
+        public TextView()
         {
             InitializeComponent();
-            DataContext = new AboutViewModel();
+            DataContext = new TextViewModel();
         }
     }
 }

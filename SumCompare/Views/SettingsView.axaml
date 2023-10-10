@@ -51,6 +51,7 @@
 					   Text="Default Mode"/>
 			<ComboBox DockPanel.Dock="Right"
 					  Margin="0 0 10 0"
+					  ItemsSource="{Binding Modes}"
 					  HorizontalAlignment="Right"/>
 		</DockPanel>
 		<DockPanel DockPanel.Dock="Top"

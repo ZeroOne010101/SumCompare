@@ -13,17 +13,31 @@
 
   
   <ItemGroup>
-    <EmbeddedResource Remove="Assets\i18n\Resources.de-DE.resx" />
-    <EmbeddedResource Remove="Assets\i18n\Resources.resx" />
+    <AvaloniaResource Remove="Localization\i18n\Resources.de-DE.resx" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <EmbeddedResource Remove="Localization\i18n\Resources.de-DE.resx" />
+    <EmbeddedResource Remove="Localization\i18n\Resources.resx" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <AvaloniaResource Include="Localization\i18n\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </AvaloniaResource>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.4" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.4" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.4" />
-    <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.4" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.4" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,16 +45,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AvaloniaResource Update="Assets\i18n\Resources.de-DE.resx">
+    <Resource Include="Localization\i18n\Resources.de-DE.resx">
       <Generator></Generator>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Assets\i18n\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Assets\i18n\Resources.resx">
+    </Resource>
+    <Resource Include="Localization\i18n\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-    </AvaloniaResource>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </Resource>
   </ItemGroup>
 </Project>

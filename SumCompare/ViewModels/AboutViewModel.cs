@@ -1,10 +1,15 @@
-﻿using ReactiveUI;
-using SumCompare.Views;
-using System.Reactive;
+﻿using CommunityToolkit.Mvvm.Input;
+using SumCompare.Utilities;
 
 namespace SumCompare.ViewModels;
 
-public class AboutViewModel : ViewModelBase
+public partial class AboutViewModel : ViewModelBase
 {
+    [RelayCommand]
+    void CloseAboutWindow()
+    {
+        var aboutWindow = WindowManager.Get("AboutWindow");
+        aboutWindow.Close();
+    }
 }
 

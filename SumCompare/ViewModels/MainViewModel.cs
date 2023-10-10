@@ -1,74 +1,45 @@
-﻿using Avalonia.Controls;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using ReactiveUI;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using SumCompare.Utilities;
 using SumCompare.Views;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Reactive;
-using System.Reactive.Linq;
 
 namespace SumCompare.ViewModels;
 
-public class MainViewModel : ViewModelBase
+public partial class MainViewModel : ViewModelBase
 {
-    // Fields
-    public Dictionary<string, MainControls> appModes = new()
-    {
-        {"hash_file",       new MainControls(new FileView(), new ChecksumView())},
-        //{"hash_text",       new AppMode("hash_file", new TextView(), new ChecksumView())},
-        {"compare_files",   new MainControls(new FileView(), new FileView())}
-    };
+    [ObservableProperty]
+    private List<string> algorithmItems;
 
-    // Primitives
-    public struct MainControls
-    {
-        public MainControls(UserControl topControl, UserControl bottomControl)
-        {
-            TopControl = topControl;
-            BottomControl = bottomControl;
-        }
-        public UserControl TopControl { get; set; }
-        public UserControl BottomControl { get; set; }
-    }
+    [ObservableProperty]
+    public int selectedAlgorithmIndex;
 
-    // Properties
-    public List<string> AlgorithmItems { get; set; }
-    public string SelectedAlgorithm { get; set; }
-    public MainControls _mode { get; set; }
-    public ReactiveCommand<Unit, Unit> OpenAboutWindow { get; }
-    public ReactiveCommand<Unit, Unit> OpenSettings { get; }
-    public ReactiveCommand<Unit, Unit> GenerateButton { get; }
+    [ObservableProperty]
+    private List<string> modeItems;
 
-    // Functions
-    public MainViewModel()
-    {
-        OpenAboutWindow = ReactiveCommand.Create(_OpenAboutWindow);
-        OpenSettings = ReactiveCommand.Create(_OpenSettings);
-        AlgorithmItems = HashGenerator.HashDict.Keys.ToList();
-        SelectedAlgorithm = AlgorithmItems[0]; //TODO Set to Default Algorithm
-        GenerateButton = ReactiveCommand.Create(_GenerateButton);
-        _mode = appModes["hash_file"];
-    }
+    [ObservableProperty]
+    public int selectedModeIndex;
 
-    void _OpenAboutWindow()
+    [RelayCommand]
+    public void OpenAboutWindow()
     {
-        var mainWindow = App.WindowDict["MainWindow"];
+        var mainWindow = WindowManager.Get("MainWindow");
         var aboutWindow = new AboutWindow();
-        aboutWindow.ShowDialog(mainWindow);
+        aboutWindow.Show(mainWindow);
     }
 
-    void _OpenSettings()
+    [RelayCommand]
+    public void OpenSettingsWindow()
     {
-        var mainWindow = App.WindowDict["MainWindow"];
+        var mainWindow = WindowManager.Get("MainWindow");
         var settingsWindow = new SettingsWindow();
         settingsWindow.ShowDialog(mainWindow);
     }
 
-    void _GenerateButton()
+    [RelayCommand]
+    public void MainButtonMethod()
     {
-        HashGenerator.GetTextHash("ABC", HashGenerator.HashDict[SelectedAlgorithm]); //TODO get text contents, diff between file and text, display/compare hash
+        throw new NotImplementedException("Not implemented yet, the main controls need to work first");
     }
 }

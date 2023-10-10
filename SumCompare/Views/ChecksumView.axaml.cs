@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using SumCompare.ViewModels;
 
 namespace SumCompare.Views
 {
@@ -7,6 +8,7 @@ namespace SumCompare.Views
         public ChecksumView()
         {
             InitializeComponent();
+            DataContext = new ChecksumViewModel();
         }
     }
 }

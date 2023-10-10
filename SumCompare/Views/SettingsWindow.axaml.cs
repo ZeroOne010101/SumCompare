@@ -1,15 +1,16 @@
 using Avalonia.Controls;
+using SumCompare.Utilities;
 
 namespace SumCompare.Views;
 
 public partial class SettingsWindow : Window
 {
-    private static readonly string windowIdentifier = "SettingsWindow";
+    private const string windowIdentifier = "SettingsWindow";
 
     public SettingsWindow()
     {
         InitializeComponent();
-        App.WindowDict.Add(windowIdentifier, this);
-        Closing += (sender, args) => App.WindowDict.Remove(windowIdentifier);
+        WindowManager.Add(windowIdentifier, this);
+        Closing += (sender, args) => WindowManager.Remove(windowIdentifier);
     }
 }

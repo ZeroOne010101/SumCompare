@@ -1,7 +1,7 @@
-﻿using ReactiveUI;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace SumCompare.ViewModels;
 
-public class ViewModelBase : ReactiveObject
+public class ViewModelBase : ObservableObject
 {
 }

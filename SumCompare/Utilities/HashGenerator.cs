@@ -9,7 +9,7 @@ namespace SumCompare.Utilities
 {
     public abstract class HashGenerator
     {
-        public static Dictionary<string, IHashAlgorithm> HashDict = new();
+        public static Dictionary<string, IHashAlgorithm> Algorithms { get; set; } = new();
         public static void Initialize()
         {
             // Use Reflection to get all classes in SumCompare.HashAlgorithms
@@ -23,11 +23,11 @@ namespace SumCompare.Utilities
                 IHashAlgorithm? hashAlgorithm = (IHashAlgorithm?)Activator.CreateInstance(algorithmType);
                 if (hashAlgorithm is not null and IHashAlgorithm)
                 {
-                    HashGenerator.HashDict.Add(hashAlgorithm.AlgorithmName, hashAlgorithm);
+                    HashGenerator.Algorithms.Add(hashAlgorithm.AlgorithmName, hashAlgorithm);
                 }
                 else
                 {
-                    throw new SumCompareException("Reflection object null or not child of IHashAlgorithm. This should never happen.");
+                    throw new SumCompareException("Reflected object null or not child of IHashAlgorithm. This should never happen.");
                 }
             }
         }

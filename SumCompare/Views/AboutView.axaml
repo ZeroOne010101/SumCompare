@@ -40,7 +40,8 @@
 		<DockPanel DockPanel.Dock="Top"/>
 		<Button DockPanel.Dock="Bottom"
 				Margin="5"
-				Content="OK"/>
+				Content="OK"
+				Command="{Binding CloseAboutWindow}"/>
 		<DockPanel DockPanel.Dock="Bottom"/>
 	</DockPanel>
 </UserControl>
