@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Localization\Resources.de-DE.resx">
       <Generator></Generator>
     </Resource>
