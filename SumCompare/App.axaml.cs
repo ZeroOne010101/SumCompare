@@ -2,10 +2,9 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-
-using SumCompare.Utilities;
 using SumCompare.ViewModels;
 using SumCompare.Views;
+using System;
 using System.Globalization;
 
 namespace SumCompare;
@@ -26,9 +25,9 @@ public partial class App : Application
         HashGenerator.Initialize();
 
         // Set Culture for i18n
-        Localization.i18n.Resources.Culture = CultureInfo.CurrentUICulture;
+        Localization.Resources.Culture = CultureInfo.CurrentUICulture;
 
-        // Default Avalonia Initialization from here on
+        // AvaloniaUI initialization
 
         // Line below is needed to remove Avalonia data validation.
         // Without this line you will get duplicate validations from both Avalonia and CT

@@ -11,28 +11,9 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
-  
-  <ItemGroup>
-    <AvaloniaResource Remove="Localization\i18n\Resources.de-DE.resx" />
-  </ItemGroup>
-
-  
-  <ItemGroup>
-    <EmbeddedResource Remove="Localization\i18n\Resources.de-DE.resx" />
-    <EmbeddedResource Remove="Localization\i18n\Resources.resx" />
-  </ItemGroup>
-
-  
-  <ItemGroup>
-    <AvaloniaResource Include="Localization\i18n\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </AvaloniaResource>
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.4" />
+    <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.3" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.4" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.4" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
@@ -41,16 +22,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="HashAlgorithms\" />
+    <Folder Include="Model\HashAlgorithms\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Localization\i18n\Resources.de-DE.resx">
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Localization\Resources.de-DE.resx">
       <Generator></Generator>
     </Resource>
-    <Resource Include="Localization\i18n\Resources.resx">
+    <Resource Include="Localization\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Localization\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

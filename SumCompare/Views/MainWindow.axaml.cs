@@ -1,5 +1,4 @@
 ﻿using Avalonia.Controls;
-using SumCompare.Utilities;
 
 namespace SumCompare.Views;
 

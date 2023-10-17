@@ -1,23 +1,28 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
+using System.Threading.Tasks;
 
 namespace SumCompare.ViewModels;
 
 public partial class ChecksumViewModel : ViewModelBase
 {
     [ObservableProperty]
-    private string checksum;
+    private string checksum = "";
 
     [RelayCommand]
-    public void CopyChecksum()
+    public async Task CopyChecksum()
     {
-        throw new NotImplementedException("Needs to be implemented first");
+        var mainWindow = WindowManager.Get("MainWindow");
+        var clipboard = mainWindow.Clipboard;
+        if (clipboard != null)
+        {
+            await clipboard.SetTextAsync(Checksum);
+        }
     }
 
     [RelayCommand]
     public void DeleteChecksum()
     {
-        throw new NotImplementedException("Needs to be implemented first");
+        Checksum = "";
     }
 }

@@ -3,10 +3,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:views="clr-namespace:SumCompare.Views"
+		xmlns:L="clr-namespace:SumCompare.Localization"
         mc:Ignorable="d" d:DesignWidth="260" d:DesignHeight="280"
         x:Class="SumCompare.Views.SettingsWindow"
 		Icon="/Assets/icon.ico"
-        Title="Settings"
+        Title="{x:Static L:Resources.Settings}"
 		CanResize="False"
 		Width="260"
 		Height="280">

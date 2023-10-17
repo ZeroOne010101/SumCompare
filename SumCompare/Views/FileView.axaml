@@ -2,8 +2,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:SumCompare.ViewModels"
+			 xmlns:L="clr-namespace:SumCompare.Localization"
              mc:Ignorable="d" d:DesignWidth="260" d:DesignHeight="105"
-             x:Class="SumCompare.Views.FileView">
+             x:Class="SumCompare.Views.FileView"
+			 x:DataType="vm:FileViewModel">
+	
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+		     to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:FileViewModel />
+	</Design.DataContext>
+
 	<!--Styles-->
 	<UserControl.Styles>
 		<!--Global Styles-->
@@ -14,16 +24,19 @@
 	<DockPanel>
 		<TextBlock DockPanel.Dock="Top"
 			   FontWeight="Medium"
-			   Text="Dateipfad"/>
+			   Text="{x:Static L:Resources.FilePath}"/>
 		<Grid DockPanel.Dock="Top"
 			  ColumnDefinitions="*,38"
 			  RowDefinitions="38">
 			<!--TextBox apparently does not respect Grid Row Height, thus manual assignment-->
 			<TextBox Grid.Column="0"
-					 Height="38"/>
+					 Height="38"
+					 Text="{Binding FilePath}"/>
 			<Button Grid.Column="1" Grid.Row="0"
 					BorderThickness="0"
-					Content="A"/>
+					Command="{Binding OpenFileDialog}">
+				<Image Source="{SvgImage /Assets/add-folder.svg}"/>
+			</Button>
 		</Grid>
 	</DockPanel>
 </UserControl>

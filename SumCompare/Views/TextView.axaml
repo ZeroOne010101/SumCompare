@@ -2,8 +2,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:SumCompare.ViewModels"
+			 xmlns:L="clr-namespace:SumCompare.Localization"
              mc:Ignorable="d" d:DesignWidth="260" d:DesignHeight="105"
-             x:Class="SumCompare.Views.TextView">
+             x:Class="SumCompare.Views.TextView"
+			 x:DataType="vm:TextViewModel">
+
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+		     to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:TextViewModel/>
+	</Design.DataContext>
+
 	<!--Styles-->
 	<UserControl.Styles>
 		<!--Global Styles-->
@@ -14,9 +24,10 @@
 	<DockPanel>
 		<TextBlock DockPanel.Dock="Top"
 			   FontWeight="Medium"
-			   Text="Text"/>
+			   Text="{x:Static L:Resources.Text}"/>
 		<TextBox AcceptsReturn="True"
 				 TextWrapping="Wrap"
-				 Margin="0 0 0 5"/>
+				 Margin="0 0 0 5"
+				 Text="{Binding Text}"/>
 	</DockPanel>
 </UserControl>

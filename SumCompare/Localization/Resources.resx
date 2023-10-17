@@ -117,10 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GreetingText" xml:space="preserve">
-    <value>Hallo!!!</value>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
   </data>
-  <data name="Test" xml:space="preserve">
-    <value>Test2</value>
+  <data name="AboutInformationText" xml:space="preserve">
+    <value>AboutInformationTextPlaceholder</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Checksum" xml:space="preserve">
+    <value>Checksum</value>
+  </data>
+  <data name="ChecksumInformationText" xml:space="preserve">
+    <value>Leave empty to generate checksum.</value>
+  </data>
+  <data name="CompareChecksum" xml:space="preserve">
+    <value>Compare Checksum</value>
+  </data>
+  <data name="CompareFiles" xml:space="preserve">
+    <value>Compare Files</value>
+  </data>
+  <data name="DefaultAlgorithm" xml:space="preserve">
+    <value>Default Algorithm</value>
+  </data>
+  <data name="DefaultMode" xml:space="preserve">
+    <value>Default Mode</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="FilePath" xml:space="preserve">
+    <value>File Path</value>
+  </data>
+  <data name="GenerateChecksum" xml:space="preserve">
+    <value>Generate Checksum</value>
+  </data>
+  <data name="HashFile" xml:space="preserve">
+    <value>Hash File</value>
+  </data>
+  <data name="HashText" xml:space="preserve">
+    <value>Hash Text</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Mode" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
   </data>
 </root>

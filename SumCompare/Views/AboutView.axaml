@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:vm="clr-namespace:SumCompare.ViewModels"
+			 xmlns:L="clr-namespace:SumCompare.Localization"
              mc:Ignorable="d" d:DesignWidth="260" d:DesignHeight="280"
              x:Class="SumCompare.Views.AboutView"
 			 x:DataType="vm:AboutViewModel">
@@ -26,21 +27,31 @@
 		<TextBlock DockPanel.Dock="Top"
 				   HorizontalAlignment="Center"
 				   FontSize="18"
-				   FontWeight="Medium"
+				   FontWeight="Bold"
 				   Margin="0 3"
-				   Text="About"/>
+				   Text="{x:Static L:Resources.About}"/>
+		<Image DockPanel.Dock="Top"
+			   Source="{SvgImage /Assets/SumCompare.svg}"
+			   Height="80" Width="80"/>
+		<TextBlock DockPanel.Dock="Top"
+				   TextAlignment="Center"
+				   Text="{x:Static L:Resources.AboutInformationText}"/>
+		<TextBlock DockPanel.Dock="Top"
+				   TextAlignment="Center"
+				   FontWeight="Bold"
+				   Text="TODO-Licenses"/>
 		<TextBlock DockPanel.Dock="Top"
 				   TextAlignment="Center">
-			About SumCompare<LineBreak/>
-			Lorem Ipsum<LineBreak/>
-			Dolores illeat<LineBreak/>
-			securem asperagum sum<LineBreak/>
-			ser ees alat erebus
+			<Bold>MIT</Bold><LineBreak/>
+			AvaloniaUI<LineBreak/>
+			Avalonia.Svg.Skia<LineBreak/>
+			MVVMToolkit<LineBreak/>
+			iconoir.com<LineBreak/>
 		</TextBlock>
 		<DockPanel DockPanel.Dock="Top"/>
 		<Button DockPanel.Dock="Bottom"
 				Margin="5"
-				Content="OK"
+				Content="{x:Static L:Resources.Ok}"
 				Command="{Binding CloseAboutWindow}"/>
 		<DockPanel DockPanel.Dock="Bottom"/>
 	</DockPanel>

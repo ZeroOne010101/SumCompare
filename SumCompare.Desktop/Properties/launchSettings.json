@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SumCompare.Desktop": {
+      "commandName": "Project",
+      "commandLineArgs": "test1, test2"
+    }
+  }
+}
