@@ -41,7 +41,6 @@ public static class HelperFunctions
         return result;
     }
 
-    // Sanitizes file paths (WIP)
     public static string GetFilePath(string path)
     {
         string filePath = "";

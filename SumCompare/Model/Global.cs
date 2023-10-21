@@ -12,6 +12,9 @@ public static class Global
     // Path of application executable
     public static string BasePath { get; } = AppContext.BaseDirectory;
 
+    // Runtime arguments
+    public static string[] ArgumentList { get; } = Environment.GetCommandLineArgs();
+
     // Supported Languages
     public static IEnumerable<CultureInfo> SupportedLanguages { get; } = HelperFunctions.GetAvailableCultures();
 

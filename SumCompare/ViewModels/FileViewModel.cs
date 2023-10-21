@@ -3,17 +3,20 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
+using System.IO;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace SumCompare.ViewModels;
 
 public partial class FileViewModel : ViewModelBase
 {
     public FileViewModel() { } // Necessary for the previewer to work
-    public FileViewModel(string[] arguments, int index)
+    public FileViewModel(int index)
     {
         try
         {
-            filePath = arguments[index];
+            filePath = Global.ArgumentList[index];
         }
         catch (IndexOutOfRangeException)
         {
@@ -25,8 +28,18 @@ public partial class FileViewModel : ViewModelBase
     private string filePath = "";
 
     [RelayCommand]
-    public void OpenFileDialog()
+    public async Task OpenFileDialog()
     {
-        throw new NotImplementedException("File dialog needs to be implemented first");
+        var mainWindow = WindowManager.Get("MainWindow");
+        var files = await mainWindow.StorageProvider.OpenFilePickerAsync(new Avalonia.Platform.Storage.FilePickerOpenOptions
+        {
+            Title = Localization.Resources.ChooseFile
+        });
+
+        if (files is not null)
+        {
+            Uri filePath = files[0].Path;
+            FilePath = filePath.LocalPath.ToString();
+        }
     }
 }

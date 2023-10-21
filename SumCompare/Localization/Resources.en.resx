@@ -132,6 +132,9 @@
   <data name="ChecksumInformationText" xml:space="preserve">
     <value>Leave empty to generate checksum.</value>
   </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Choose file</value>
+  </data>
   <data name="CompareChecksum" xml:space="preserve">
     <value>Compare Checksum</value>
   </data>

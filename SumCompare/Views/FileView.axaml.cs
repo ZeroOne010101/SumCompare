@@ -10,10 +10,11 @@ namespace SumCompare.Views
             InitializeComponent();
             DataContext = new FileViewModel();
         }
-        public FileView(string[] arguments, int index)
+
+        public FileView(int index)
         {
             InitializeComponent();
-            DataContext = new FileViewModel(arguments, index);
+            DataContext = new FileViewModel(index);
         }
     }
 }

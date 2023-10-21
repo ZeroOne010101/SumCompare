@@ -97,11 +97,20 @@ namespace SumCompare.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Leave empty to generate checksum..
+        ///   Looks up a localized string similar to Leave empty to generate checksum.
         /// </summary>
         public static string ChecksumInformationText {
             get {
                 return ResourceManager.GetString("ChecksumInformationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coose file.
+        /// </summary>
+        public static string ChooseFile {
+            get {
+                return ResourceManager.GetString("ChooseFile", resourceCulture);
             }
         }
         
@@ -151,7 +160,7 @@ namespace SumCompare.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File Path.
+        ///   Looks up a localized string similar to File path.
         /// </summary>
         public static string FilePath {
             get {
@@ -160,7 +169,7 @@ namespace SumCompare.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Generate Checksum.
+        ///   Looks up a localized string similar to Generate checksum.
         /// </summary>
         public static string GenerateChecksum {
             get {
@@ -169,7 +178,7 @@ namespace SumCompare.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hash File.
+        ///   Looks up a localized string similar to Hash file.
         /// </summary>
         public static string HashFile {
             get {
