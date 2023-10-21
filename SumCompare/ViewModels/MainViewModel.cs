@@ -2,31 +2,45 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SumCompare.ApplicationModes;
+using SumCompare.Utilities;
 using SumCompare.Views;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SumCompare.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
     [ObservableProperty]
-    private List<string> algorithmItems;
+    private List<IApplicationMode> applicationModes = Global.Modes.Values.ToList();
 
     [ObservableProperty]
-    public int selectedAlgorithmIndex;
+    private IApplicationMode selectedApplicationMode = Global.Modes[Global.Settings.DefaultMode];
 
     [ObservableProperty]
-    private List<string> modeItems;
+    private IApplicationMode currentApplicationMode = Global.Modes[Global.Settings.DefaultMode];
 
     [ObservableProperty]
-    public int selectedModeIndex;
+    private List<IHashAlgorithm> hashAlgorithms = Global.Algorithms.Values.ToList();
 
     [ObservableProperty]
-    public UserControl topControl = State.CurrentMode.TopControl;
+    private IHashAlgorithm selectedHashAlgorithm = Global.Algorithms[Global.Settings.DefaultAlgorithm];
 
     [ObservableProperty]
-    public UserControl bottomControl = State.CurrentMode.BottomControl;
+    private IHashAlgorithm currentHashAlgorithm = Global.Algorithms[Global.Settings.DefaultAlgorithm];
+
+    [RelayCommand]
+    public void SetApplicationMode()
+    {
+        CurrentApplicationMode = SelectedApplicationMode;
+    }
+
+    [RelayCommand]
+    public void SetHashAlgorithm()
+    {
+        CurrentHashAlgorithm = SelectedHashAlgorithm;
+    }
 
     [RelayCommand]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "RelayCommand requires the Method not to be static")]
@@ -46,32 +60,9 @@ public partial class MainViewModel : ViewModelBase
         settingsWindow.ShowDialog(mainWindow);
     }
 
-    [ObservableProperty]
-    // Manual implementation of ObservableProperty due to custom get
-    public string mainButtonContent = State.CurrentMode.ButtonText;
-
     [RelayCommand]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "RelayCommand requires the Method not to be static")]
     public void MainButtonMethod()
     {
-        switch (State.CurrentMode)
-        {
-            case var _ when State.CurrentMode.GetType() == typeof(CompareFiles):
-                FileViewModel topViewModel = (FileViewModel)State.CurrentMode.TopControl.DataContext!;
-                FileViewModel bottomViewModel = (FileViewModel)State.CurrentMode.BottomControl.DataContext!;
-                string firstHash = HashGenerator.GetFileHash(topViewModel.FilePath, State.CurrentAlgorithm);
-                string secondHash = HashGenerator.GetFileHash(bottomViewModel.FilePath, State.CurrentAlgorithm);
-                if (firstHash == secondHash)
-                {
-                    // There has to be a better way for this
-                }
-                break;
-            case var _ when State.CurrentMode.GetType() == typeof(HashFile):
-                break;
-            case var _ when State.CurrentMode.GetType() == typeof(HashText):
-                break;
-            default:
-                break;
-        }
+        CurrentApplicationMode.MainButtonCommand();
     }
 }

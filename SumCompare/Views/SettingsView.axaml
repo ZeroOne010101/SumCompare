@@ -41,7 +41,16 @@
 					   VerticalAlignment="Center"
 					   Text="{x:Static L:Resources.DefaultAlgorithm}"/>
 			<ComboBox DockPanel.Dock="Right"
-					  HorizontalAlignment="Right"/>
+					  HorizontalAlignment="Right"
+					  Margin="10 0 10 0"
+					  ItemsSource="{Binding HashAlgorithms}"
+					  SelectedValue="{Binding SelectedHashAlgorithm}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding Name}"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
 		</DockPanel>
 		<DockPanel DockPanel.Dock="Top"
 				   Margin="0 5">
@@ -51,9 +60,16 @@
 					   VerticalAlignment="Center"
 					   Text="{x:Static L:Resources.DefaultMode}"/>
 			<ComboBox DockPanel.Dock="Right"
-					  Margin="0 0 10 0"
-					  ItemsSource="{Binding ModeItems}"
-					  HorizontalAlignment="Right"/>
+					  Margin="10 0 10 0"
+					  HorizontalAlignment="Right"
+					  ItemsSource="{Binding ApplicationModes}"
+					  SelectedItem="{Binding SelectedApplicationMode}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding MainButtonText}"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
 		</DockPanel>
 		<DockPanel DockPanel.Dock="Top"
 				   Margin="0 5">
@@ -63,8 +79,16 @@
 					   VerticalAlignment="Center"
 					   Text="{x:Static L:Resources.Language}"/>
 			<ComboBox DockPanel.Dock="Right"
-					  Margin="0 0 10 0"
-					  HorizontalAlignment="Right"/>
+					  Margin="10 0 10 0"
+					  HorizontalAlignment="Right"
+					  ItemsSource="{Binding Languages}"
+					  SelectedItem="{Binding SelectedLanguage}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding EnglishName}"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
 		</DockPanel>
 		<Button DockPanel.Dock="Bottom"
 				Height="38"
@@ -76,7 +100,8 @@
 				Height="38"
 				VerticalAlignment="Top"
 				Margin="5 5 5 2"
-				Content="{x:Static L:Resources.Save}"/>
+				Content="{x:Static L:Resources.Save}"
+				Command="{Binding SaveSettingsCommand}"/>
 		<DockPanel DockPanel.Dock="Bottom"/>
 	</DockPanel>
 </UserControl>

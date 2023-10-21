@@ -6,7 +6,7 @@ namespace SumCompare.HashAlgorithms;
 
 public class MD5 : IHashAlgorithm
 {
-    public string AlgorithmName { get; } = "MD5";
+    public string Name { get; } = "MD5";
 
     public string FileHash(string path)
     {

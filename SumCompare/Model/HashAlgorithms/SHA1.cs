@@ -6,7 +6,7 @@ namespace SumCompare.HashAlgorithms;
 
 public class SHA1 : IHashAlgorithm
 {
-    public string AlgorithmName { get; set; } = "SHA1";
+    public string Name { get; set; } = "SHA1";
 
     public string FileHash(string path)
     {

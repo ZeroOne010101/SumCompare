@@ -12,12 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.4" />
+    <PackageReference Include="Avalonia" Version="11.0.5" />
     <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.3" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.4" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.4" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.5" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.5" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.4" />
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.5" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
   </ItemGroup>
 
@@ -26,20 +26,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Localization\Resources.de-DE.resx">
+    <Resource Include="Localization\Resources.de.resx">
       <Generator></Generator>
     </Resource>
-    <Resource Include="Localization\Resources.resx">
+    <Resource Include="Localization\Resources.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Localization\Resources.Designer.cs">
+    <Compile Update="Localization\Resources.en.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
+      <DependentUpon>Resources.en.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

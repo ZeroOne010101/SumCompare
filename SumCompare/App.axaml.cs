@@ -4,8 +4,6 @@ using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using SumCompare.ViewModels;
 using SumCompare.Views;
-using System;
-using System.Globalization;
 
 namespace SumCompare;
 
@@ -13,20 +11,14 @@ public partial class App : Application
 {
     public override void Initialize()
     {
+        // Initialize global state
+        Global.Initialize();
+
         AvaloniaXamlLoader.Load(this);
     }
 
     public override void OnFrameworkInitializationCompleted()
     {
-        // Load Configuration File
-        Configuration.Load();
-
-        // Initialize HashGenerator
-        HashGenerator.Initialize();
-
-        // Set Culture for i18n
-        Localization.Resources.Culture = CultureInfo.CurrentUICulture;
-
         // AvaloniaUI initialization
 
         // Line below is needed to remove Avalonia data validation.

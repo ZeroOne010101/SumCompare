@@ -6,7 +6,7 @@ namespace SumCompare.HashAlgorithms;
 
 public class SHA256 : IHashAlgorithm
 {
-    public string AlgorithmName { get; set; } = "SHA256";
+    public string Name { get; set; } = "SHA256";
 
     public string FileHash(string path)
     {

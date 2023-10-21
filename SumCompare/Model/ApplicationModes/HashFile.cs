@@ -3,9 +3,13 @@ using SumCompare.Utilities;
 
 namespace SumCompare.ApplicationModes;
 
-public class HashFile : MainControls
+public class HashFile : IApplicationMode
 {
-    public HashFile(UserControl topControl, UserControl bottomControl) : base(topControl, bottomControl) { }
-    public override string Name { get; } = "HashFile";
-    public override string ButtonText { get; } = Localization.Resources.HashFile;
+    public string Name { get; } = "HashFile";
+    public UserControl TopControl { get; set; } = new Views.FileView();
+    public UserControl BottomControl { get; set; } = new Views.ChecksumView();
+    public string MainButtonText { get; } = Localization.Resources.HashFile;
+    public void MainButtonCommand()
+    {
+    }
 }
