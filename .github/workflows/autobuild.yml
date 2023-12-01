@@ -30,4 +30,3 @@ jobs:
       with:
         name: devbuild
         path: devbuild
-    - name: Upload a Build Artifact
