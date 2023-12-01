@@ -22,11 +22,11 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet publish --no-restore --self-contained -r win-x64 -o .\builds -p:PublishSingleFile=true -p:PublishReadyToRun=true -p:IncludeNativeLibrariesForSelfExtract=true -p:PublishTrimmed=true
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Upload build output
       uses: actions/upload-artifact@v3
       with:
         name: devbuild
-        path: devbuild
+        path: .\builds
